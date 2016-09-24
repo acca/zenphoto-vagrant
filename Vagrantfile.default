@@ -1,0 +1,35 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+
+  # DigitalOcean remote deployment
+  config.vm.define "zenphoto-remote" do |remote|
+    remote.vm.box = "digital_ocean"
+
+    remote.vm.provider :digital_ocean do |provider, override|
+      override.ssh.private_key_path = '~/.ssh/id_rsa'
+      override.vm.box = 'digital_ocean'
+      override.vm.box_url = "https://github.com/devopsgroup-io/vagrant-digitalocean/raw/master/box/digital_ocean.box"
+      provider.token = 'YOUR TOKEN'
+      provider.image = 'ubuntu-14-04-x64'
+      provider.region = 'nyc1'
+      provider.size = '512mb'
+    end
+  end
+
+  # VirtualBox local deployment
+  config.vm.define "zenphoto-local" do |local|
+    local.vm.box = "ubuntu/trusty64"
+
+    local.vm.provider "virtualbox" do |vb|
+      # apache port
+      local.vm.network "forwarded_port", guest: 80, host: 8080
+      vb.name = "zenphoto"
+    end
+  end
+
+  # Shared configuration
+  config.vm.provision "shell",
+    inline: "/bin/bash /vagrant/provision.sh"
+end

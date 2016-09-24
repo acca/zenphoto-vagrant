@@ -40,4 +40,5 @@ sed -i "s/\$conf\['mysql_user'\] = ''/\$conf['mysql_user'] = 'root'/" zp-data/ze
 sed -i "s/\$conf\['mysql_database'\] = ''/\$conf['mysql_database'] = '$APP_NAME'/" zp-data/zenphoto.cfg.php
 
 a2enmod rewrite
+sleep 3
 service apache2 restart

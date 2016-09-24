@@ -1,0 +1,7 @@
+Vagrantfile
+.vagrant
+
+# Ignore temporary files
+*~
+._*
+*.DS_Store
