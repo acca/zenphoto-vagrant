@@ -1,0 +1,18 @@
+* Introduction
+  This is a Vagrant project to quickly setup a virtual machine with a ready-to-install ZenPhoto instance.
+
+  Provider available:
+  - VirtualBox
+    Default with an Ubuntu (14.04) Trusty 64bit virtual machine.
+
+  
+
+* Deployment
+  - Start deployment with
+    #+BEGIN_EXAMPLE
+    vagrant up
+    #+END_EXAMPLE
+  - Visit zenphoto to complete installation at http://localhost:8080
+    
+* Notes
+  Setup of a ZenPhoto instance using this Vagrant file should be used only for development purposes (on developer laptop) since currently it setup *unsecure ubuntu and mysql* installation 
