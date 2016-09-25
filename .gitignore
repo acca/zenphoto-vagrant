@@ -1,5 +1,5 @@
-Vagrantfile
 .vagrant
+vagrant_config.yaml
 
 # Ignore temporary files
 *~

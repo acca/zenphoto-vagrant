@@ -4,14 +4,13 @@
   This project uses [[https://www.vagrantup.com/docs/multi-machine/][Vagrant multi machine]] feature, therefore two different providers are available:
   - *VirtualBox*: Default with an Ubuntu (14.04) Trusty 64bit virtual machine.
   - *DigitalOcean*: Default with an Ubuntu (14.04) Trusty 64bit virtual machine.
-
   
 * Deployment
   It is possible to deploy on two different providers: Digital Ocean (remote) and VirtualBox (local).
 
   Create a Vagrantfile from the template:
   #+BEGIN_EXAMPLE
-  cp Vagrantfile.default Vagrantfile
+  cp vagrant_config.default.yaml vagrant_config.yaml
   #+END_EXAMPLE
 
 ** Remote with Digital Ocean
@@ -19,7 +18,7 @@
      #+BEGIN_EXAMPLE
      vagrant plugin install vagrant-digitalocean
      #+END_EXAMPLE
-   - Customize =Vagrantfile= with your Digital Ocean credentials, details [[https://github.com/devopsgroup-io/vagrant-digitalocean][here]] and [[https://www.digitalocean.com/community/tutorials/how-to-use-digitalocean-as-your-provider-in-vagrant-on-an-ubuntu-12-10-vps][here]]
+   - Customize =vagrant_config.yaml= with your Digital Ocean credentials, details [[https://github.com/devopsgroup-io/vagrant-digitalocean][here]] and [[https://www.digitalocean.com/community/tutorials/how-to-use-digitalocean-as-your-provider-in-vagrant-on-an-ubuntu-12-10-vps][here]]
    - Start deployment with
      #+BEGIN_EXAMPLE
      # Provision zenphoto_remote

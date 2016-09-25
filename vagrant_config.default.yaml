@@ -1,0 +1,15 @@
+---
+configs:
+    use: 'conf_1'
+    conf_1:
+        private_key_path: '~/.ssh/id_rsa'
+        token: 'YOUR_TOKEN_HERE'
+        image: 'ubuntu-14-04-x64'
+        region: 'fra1'
+        size: '512mb'
+    conf_2:
+        private_key_path: '~/.ssh/id_rsa'
+        token: 'YOUR_TOKEN_HERE'
+        image: 'ubuntu-14-04-x64'
+        region: 'nyc1'
+        size: '512mb'
