@@ -32,4 +32,6 @@ Vagrant.configure(2) do |config|
   # Shared configuration
   config.vm.provision "shell",
     inline: "/bin/bash /vagrant/provision.sh"
+  config.vm.synced_folder ".", "/vagrant", type: "rsync",
+    rsync__exclude: ".git/"
 end
