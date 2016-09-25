@@ -43,3 +43,13 @@ function zenphoto_install() {
 	cd $WS
 	mv $APP_NAME-$APP_NAME-$APP_VERSION $APP_NAME
 }
+
+function customize_php_ini() {
+	echo "----> Customizing php.ini"
+	PHP_INI_FILE='/etc/php5/apache2/php.ini'
+	sed -i "s/memory_limit = .*/memory_limit = 128M/" $PHP_INI_FILE
+	sed -i "s/post_max_size = .*/post_max_size = 1G/" $PHP_INI_FILE
+	sed -i "s/file_uploads = .*/file_uploads = On/" $PHP_INI_FILE
+	sed -i "s/upload_max_filesize = .*/upload_max_filesize = 1G/" $PHP_INI_FILE
+	sed -i "s/max_file_uploads = .*/max_file_uploads = 20/" $PHP_INI_FILE
+}

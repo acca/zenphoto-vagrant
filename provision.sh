@@ -21,4 +21,6 @@ a2enmod rewrite
 
 sleep 3
 
+customize_php_ini
+
 service apache2 restart
