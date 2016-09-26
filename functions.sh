@@ -4,6 +4,7 @@ WS='/var/www/html'
 APP_NAME='zenphoto'
 WEB_USER='www-data'
 APP_VERSION='1.4.13'
+PHP_INI_FILE='/etc/php5/apache2/php.ini'
 
 function ubu_setup() {
 	echo "----> Setup..."
@@ -54,7 +55,6 @@ function zenphoto_install() {
 
 function customize_php_ini() {
 	echo "----> Customizing php.ini"
-	PHP_INI_FILE='/etc/php5/apache2/php.ini'
 	cp $PHP_INI_FILE $PHP_INI_FILE.bck
 	sed -i "s/memory_limit = .*/memory_limit = 128M/" $PHP_INI_FILE
 	sed -i "s/post_max_size = .*/post_max_size = 1G/" $PHP_INI_FILE
@@ -69,5 +69,7 @@ function upgrade_php() {
 	apt-add-repository ppa:ondrej/php -y
 	apt-get update -y
 	apt-get install php5.6 php5.6-gd php5.6-mysql -y
+	PHP_INI_FILE='/etc/php/5.6/apache2/php.ini'
+	customize_php_ini
 	service apache2 restart
 }
