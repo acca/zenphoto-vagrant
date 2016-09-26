@@ -62,3 +62,12 @@ function customize_php_ini() {
 	sed -i "s/upload_max_filesize = .*/upload_max_filesize = 1G/" $PHP_INI_FILE
 	sed -i "s/max_file_uploads = .*/max_file_uploads = 20/" $PHP_INI_FILE
 }
+
+function upgrade_php() {
+	# http://askubuntu.com/questions/565784/how-do-i-upgrade-php-version-to-the-latest-stable-released-version
+	apt-get remove php5-common -y
+	apt-add-repository ppa:ondrej/php -y
+	apt-get update -y
+	apt-get install php5.6 php5.6-gd php5.6-mysql -y
+	service apache2 restart
+}
