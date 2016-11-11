@@ -34,5 +34,8 @@
      #+END_EXAMPLE
    - Visit zenphoto to complete installation at http://localhost:8080
      
+* Additions
+  The [[file:plugins/][plugin]] folder contains a collection of the following third parties useful plugins:
+  - iOS
 * Notes
   Setup of a ZenPhoto instance using this Vagrant file should be used only for development purposes (on developer laptop) since currently it setup *unsecure ubuntu and mysql* installation 
